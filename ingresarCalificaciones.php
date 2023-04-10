@@ -92,6 +92,9 @@ require 'conexion.php';
         </div>
     </nav>
     <!--Aquí termina el menú de navegación-->
+    <?php
+    $tabla = $_GET['table'];
+    ?>
 
     <!--Aquí comienza el main-->
     <main class="container" style="margin-top: 20px;">
@@ -100,6 +103,7 @@ require 'conexion.php';
                 <h1 class="h2 pb-2 mb-4 text-dark border-bottom border-dark">Contacto</h1>
                 <form action="ingresarAlumnos.php" method="post">
                     <div class="col-md-12">
+                    <input type="hidden" class="form-control" id="tabla" name="tabla" value="<?php echo $tabla; ?>">
                         <label for="titulo">N° de lista</label>
                         <input type="number" class="form-control" id="nlista" name="nlista">
                     </div> <br>
@@ -117,7 +121,7 @@ require 'conexion.php';
                     </div> <br>
                     <div class="form-group col-md-12">
                         <label for="correo">Calificacion</label>
-                        <input type="number" class="form-control" required autocomplete="off" name="calificacion" id="calificacion" >
+                        <input type="number" class="form-control" required autocomplete="off" name="calificacion" id="calificación" step="any" min="0" max="10">
                     </div> <br>
 
                     <button type="submit" class="btn btn-primary" name="actualizar" value="actualizar">Añadir</button>

@@ -1,32 +1,36 @@
 <?php
 require 'conexion.php';
+
+// Obtener el ID del producto a actualizar
+
+$table =$_GET['table'];
+$id = $_GET['id'];
+
+// Obtener los datos actuales del producto
+$stmt = $conn->prepare("SELECT * FROM $table WHERE id = ?");
+$stmt->bind_param("i", $id);
+$stmt->execute();
+$resultado = $stmt->get_result();
+
 // Verificar si se ha enviado el formulario de actualización
+/*
 if (isset($_POST['actualizar'])) {
+    $tabla = $_POST['tabla'];
     $id = $_POST['id'];
     $nlista = $_POST['nlista'];
     $nombre = $_POST['nombre'];
     $paterno = $_POST['paterno'];
     $materno = $_POST['materno'];
     $calificacion = $_POST['calificacion'];
+        // Actualizar la fila correspondiente en la base de datos
+        $stmt = $conn->prepare("UPDATE $tabla SET nlista = ?, nombre = ?, paterno = ?, materno = ?, calificacion = ? WHERE id = ?");
+        $stmt->bind_param("isssdi",$nlista, $nombre, $paterno, $materno, $calificacion, $id);
+        $stmt->execute();
 
-    // Actualizar la fila correspondiente en la base de datos
-    $stmt = $conn->prepare("UPDATE primeroa SET nlista = ?, nombre = ?, paterno = ?, materno = ?, calificacion = ? WHERE id = ?");
-    $stmt->bind_param("isssdi",$nlista, $nombre, $paterno, $materno, $calificacion, $id);
-    $stmt->execute();
-
-    // Redirigir al usuario a la página de lista de productos
-    header('Location: admin.php');
-    exit();
-}
-
-// Obtener el ID del producto a actualizar
-$id = $_GET['id'];
-
-// Obtener los datos actuales del producto
-$stmt = $conn->prepare("SELECT * FROM primeroa WHERE id = ?");
-$stmt->bind_param("i", $id);
-$stmt->execute();
-$resultado = $stmt->get_result();
+        // Redirigir al usuario a la página de lista de productos
+        header('Location: admin.php');
+        exit();
+    }*/
 
 // Asignar los valores de los datos actuales a las propiedades de los elementos de entrada del formulario
 if ($resultado->num_rows > 0) {
@@ -63,8 +67,9 @@ $conection = mysqli_connect($servername, $username, $password, $databases);
                     Actualizar
                 </h3>
 
-                <form action="update.php" method="post">
+                <form action="actualizar.php" method="post">
                     <div class="col-md-12">
+                    <input type="hidden" class="form-control" name="tabla" value="<?php echo $table; ?>">
                         <input type="hidden" class="form-control" id="id" name="id" value="<?php echo $row['id'] ?>">
                         <label for="titulo">N° de lista</label>
                         <input type="number" class="form-control" id="nlista" name="nlista" value="<?php echo $row['nlista'] ?>">
@@ -86,7 +91,7 @@ $conection = mysqli_connect($servername, $username, $password, $databases);
                         <input type="text" class="form-control" required autocomplete="off" name="calificacion" id="calificacion" value="<?php echo $row['calificacion'] ?>">
                     </div> <br>
 
-                    <button type="submit" class="btn btn-primary" name="actualizar" value="actualizar">Actualizar</button>
+                    <button type="submit" class="btn btn-primary" id="actualizar" name="actualizar" value="actualizar">Actualizar</button>
                 </form>
             </div>
         </div>

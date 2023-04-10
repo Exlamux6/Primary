@@ -1,12 +1,13 @@
 <?php
     require 'conexion.php';
+                    $table = $_POST['tabla'];
                     $nlista = $_POST['nlista'];
                     $nombre = $_POST['nombre'];
                     $paterno = $_POST['paterno'];
                     $materno = $_POST['materno'];
                     $calificacion = $_POST['calificacion'];
 
-                    $insertarDatos = "INSERT INTO primeroa (nlista, nombre, paterno, materno, calificacion) VALUES ( '$nlista', '$nombre', '$paterno', '$materno', '$calificacion')";
+                    $insertarDatos = "INSERT INTO $table (nlista, nombre, paterno, materno, calificacion) VALUES ( '$nlista', '$nombre', '$paterno', '$materno', '$calificacion')";
                     $ejecutarInsertar = mysqli_query($conn, $insertarDatos);
                     header('location: admin.php');
                     // Actualizar la fila correspondiente en la base de datos
