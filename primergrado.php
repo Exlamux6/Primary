@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-grid.min.css">
     <link rel="stylesheet" href="css/styles.css">
+    <script src="js/jquery-3.5.1.min.js"></script>
     <title>Esc. Prim. Fed. Lic. Benito Juarez</title>
 </head>
 
@@ -97,23 +98,24 @@
     <!--Aquí comienza el main-->
     <main class="container" style="margin-top: 20px;">
         <div class="row g-4">
+                <h1 class="h2 pb-2 mb-4 text-center text-dark border-bottom border-dark">Calificaciones de 1° A y 1° B</h1>
             <div class="col-md-8">
-                <h1 class="h2 pb-2 mb-4 text-dark border-bottom border-dark">Calificaciones de 1° A y 1° B</h1>
-                    <div class="col-md-12">
+                    <div class="col-md-12 table-responsive">
                     <?php
-                $sql = "SELECT * FROM primeroa";
-                $resultado = mysqli_query($conn, $sql);
-                ?>
+                    $sql = "SELECT * FROM primeroa";
+                    $resultado = mysqli_query($conn, $sql);
+                    ?>
                         <h4 class="pb-4 mb-4 fst-italic border-bottom border-primary">
                         Primer año - grupo A
                         </h4>
                         <table class="col-md-12 table table-bordered table-success table-striped">
                         <thead>
                             <th>N° de lista</th>
-                            <th>Nombre</th>
-                            <th>Apellido paterno</th>
-                            <th>Apellido materno</th>
-                            <th>Calificación</th>
+                            <th>Nombre completo</th>
+                            <th>1er Parcial</th>
+                            <th>2do Parcial</th>
+                            <th>3er Parcial</th>
+                            <th>Promedio</th>
                         </thead>
                         <tbody>
                             <?php
@@ -121,10 +123,46 @@
                             ?>
                             <tr>
                                 <td><?php echo $registros['nlista'];?></td>
-                                <td><?php echo $registros['nombre'];?></td>
-                                <td><?php echo $registros['paterno']; ?></td>
-                                <td><?php echo $registros['materno'];?></td>
-                                <td><?php echo $registros['calificacion'];?></td>
+                                <td><?php echo $registros['nombre']; echo " ". $registros['paterno']; echo " ". $registros['materno'];?></td>
+                                <td><?php if($registros['primerP'] == 0){echo "Pendiente";}else{echo $registros['primerP'];}?></td>
+                                <td><?php if($registros['segundoP'] == 0){echo "Pendiente";}else{echo $registros['segundoP'];}?></td>
+                                <td><?php if($registros['tercerP'] == 0){echo "Pendiente";}else{echo $registros['tercerP'];}?></td>
+                                <td><?php if($registros['promedio'] == 0){echo "Pendiente";}else{echo $registros['promedio'];}?></td>
+                            </tr>
+                            <?php
+                            }
+                            ?>
+                        </tbody>
+                        </table>
+                    </div>
+                    <div class="col-md-12 table-responsive">
+                    <?php
+                    $sql = "SELECT * FROM primerob";
+                    $resultado = mysqli_query($conn, $sql);
+                    ?>
+                        <h4 class="pb-4 mb-4 fst-italic border-bottom border-primary">
+                        Primer año - grupo B
+                        </h4>
+                        <table class="col-md-12 table table-bordered table-success table-striped">
+                        <thead>
+                            <th>N° de lista</th>
+                            <th>Nombre completo</th>
+                            <th>1er Parcial</th>
+                            <th>2do Parcial</th>
+                            <th>3er Parcial</th>
+                            <th>Promedio</th>
+                        </thead>
+                        <tbody>
+                            <?php
+                            while ($registros = $resultado ->fetch_assoc()) {
+                            ?>
+                            <tr>
+                                <td><?php echo $registros['nlista'];?></td>
+                                <td><?php echo $registros['nombre']; echo " ". $registros['paterno']; echo " ". $registros['materno'];?></td>
+                                <td><?php if($registros['primerP'] == 0){echo "Pendiente";}else{echo $registros['primerP'];}?></td>
+                                <td><?php if($registros['segundoP'] == 0){echo "Pendiente";}else{echo $registros['segundoP'];}?></td>
+                                <td><?php if($registros['tercerP'] == 0){echo "Pendiente";}else{echo $registros['tercerP'];}?></td>
+                                <td><?php if($registros['promedio'] == 0){echo "Pendiente";}else{echo $registros['promedio'];}?></td>
                             </tr>
                             <?php
                             }
@@ -137,28 +175,19 @@
             <!--Aquí comienza el aside-->
             <aside class="col-md-4" style="padding-top: 40px;">
                 <div class="position-sticky" style="top: 2rem; text-align: center;">
-                    <div class="p-4 mb-3 bg-light rounded">
+                    <div class="p-4 mb-3 bg-light rounded service hidden">
                         <h4 class="fst-italic">Director</h4>
                         <img src="img/descarga (1).png" width="80%" alt="">
                         <p class="mb-0">Profesor: Jorge Cadena Vergara</p>
                     </div>
 
-                    <div class="p-4">
-                        <h4 class="fst-italic">Fechas</h4>
-                        <ol class="list-unstyled mb-0">
-                            <li><a href="#">March 2021</a></li>
-                            <li><a href="#">February 2021</a></li>
-                            <li><a href="#">January 2021</a></li>
-                            <li><a href="#">December 2020</a></li>
-                            <li><a href="#">November 2020</a></li>
-                            <li><a href="#">October 2020</a></li>
-                            <li><a href="#">September 2020</a></li>
-                            <li><a href="#">August 2020</a></li>
-                            <li><a href="#">July 2020</a></li>
-                            <li><a href="#">June 2020</a></li>
-                            <li><a href="#">May 2020</a></li>
-                            <li><a href="#">April 2020</a></li>
-                        </ol>
+                    <div class="p-4 service hidden">
+                        <h4 class="fst-italic">Información</h4>
+                        <p class="text-start">
+                            La Escuela Primaria "Benito Juárez" es una institución educativa que destaca por su enfoque integral en la formación de sus estudiantes.
+                            Ubicada en un entorno tranquilo y seguro, esta escuela se ha ganado una excelente reputación en la comunidad por brindar una educación
+                            de calidad y promover valores fundamentales.
+                        </p>
                     </div>
                 </div>
             </aside>
@@ -168,13 +197,36 @@
     <!--Aquí termina el main-->
 
     <!--Inicia el footer-->
-    <footer class="container">
-        <div class="col-md-12">
-        </div>
-    </footer>
+    <div class="container service hidden">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-secondary border-top">
+            <div class="col-md-4 d-flex align-items-center">
+                <span class="mb-3 mb-md-0 text-muted">&copy; 2023 Victor Manuel Urquidez León</span>
+            </div>
+            <div class="col-md-4"></div>
+                <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                    <li class="ms-3">
+                        <a class="text-muted" href="#">
+                        <img src="img/gear-wide-connected.svg" alt="">
+                        </a>
+                </li>
+                    <li class="ms-3">
+                        <a class="text-muted" href="#">
+                        <img src="img/gear-wide-connected.svg" alt="">
+                        </a>
+                    </li>
+                    <li class="ms-3">
+                        <a class="text-muted" href="#">
+                        <img src="img/gear-wide-connected.svg" alt="">
+                        </a>
+                    </li>
+                </ul>
+            <div class="border-secondary border-top"></div>
+        </footer>
+    </div>
     <!--Aquí termina el footer-->
 
     <!--Scripts de JavaScript-->
+    <script src="js/scroll.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
 </body>
 <?php

@@ -1,5 +1,9 @@
 <?php
-    require 'conexion.php';
+require 'conexion.php';
+session_start();
+if (!isset($_SESSION['id'])) {
+    header("Location: login.php");
+}
     $tabla = $_GET['table'];
     $id = $_GET['id'];
         // Actualizar la fila correspondiente en la base de datos
@@ -8,8 +12,17 @@
         $stmt->execute();
 
         // Redirigir al usuario a la página de lista de productos
-        header('Location: admin.php');
-        exit();
-
-        mysqli_close($conn);
+        if($tabla == "datospersonales"){
+            header('Location: comentarios.php');
+            exit();
+            mysqli_close($conn);
+        } else if($tabla == "usuario"){
+            header('Location: crearUsuarios.php');
+            exit();
+            mysqli_close($conn);
+        } else{
+            header('Location: admin.php');
+            exit();
+            mysqli_close($conn);
+        }
 ?>

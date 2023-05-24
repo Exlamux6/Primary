@@ -9,125 +9,116 @@ require 'conexion.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-grid.min.css">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/contacto.css">
+    <script src="js/jquery-3.5.1.min.js"></script>
     <title>Esc. Prim. Fed. Lic. Benito Juarez</title>
 </head>
 
 <body style="background-color:rgb(224, 224, 212)">
     <!--Inicia el header-->
-    <header>
-        <div class="container-fluid">
-            <footer class="d-flex container flex-wrap justify-content-between align-items-center py-1 my-1 border-top">
-                <div class="col-md-4 d-flex align-items-center">
-                    <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
-                        <img src="img/tic.png" alt="" width="150px">
-                    </a>
-                </div>
-
-                <div class="nav col-md-4 justify-content-end list-unstyled d-flex">
-                    <script>
-                        var meses = new Array("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre");
-                        var f = new Date();
-                        document.write(f.getDate() + " de " + meses[f.getMonth()] + " de " + f.getFullYear());
-                    </script>
-                </div>
-            </footer>
-        </div>
-    </header>
     <!--Aquí termina el header-->
 
     <!--Inicia el menú de navegación-->
-    <nav>
-        <div class="col-md-12">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container">
-                    <a href="#">
-                        <img src="img/libro.png" alt="" width="40" style="margin-right: 10px;">
-                    </a>
-                    <a class="navbar-brand" id="nombrePrimaria" style="color: white;" href="#"> Esc. Prim. Fed. Benito Juarez</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
-                        <ul class="navbar-nav">
-                            <li class="nav-item" id="botonNav">
-                                <a class="nav-link active" id="navegacion" style="color: white;" aria-current="page"
-                                    href="index.html">Inicio</a>
-                            </li>
-                            <li class="nav-item" id="botonNav">
-                                <a class="nav-link" style="color: white;" id="navegacion" href="acercade.html">Acerca de</a>
-                            </li>
-                            <li class="nav-item" id="botonNav">
-                                <a class="nav-link" style="color: white;" id="navegacion" href="ofertaeducativa.html">Oferta educativa</a>
-                            </li>
-                            <li class="nav-item dropdown" id="botonNav">
-                                <a class="nav-link dropdown-toggle show.bs.dropdown" id="navegacion"
-                                    id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown"
-                                    style="color: white;" aria-expanded="false">
-                                    Grupos
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"
-                                    style="background-image:  linear-gradient(80deg,#5f8788,#4b507c);">
-                                <li><a class=" dropdown-item" href="primergrado.php">Primer Grado</a>
-                                </li>
-                                <li><a class="dropdown-item" href="segundogrado.php">Segundo Grado</a></li>
-                                <li><a class="dropdown-item" href="tercergrado.php">Tercer Grado</a></li>
-                                <li><a class="dropdown-item" href="cuartogrado.php">Cuarto Grado</a></li>
-                                <li><a class="dropdown-item" href="quintogrado.php">Quinto Grado</a></li>
-                                <li><a class="dropdown-item" href="sextogrado.php">Sexto Grado</a></li>
-                        </ul>
-                        </li>
-                        <li class="nav-item" id="botonNav">
-                            <a class="nav-link" style="color:white;" id="navegacion" href="contacto.php">Contacto</a>
-                        </li>
-                        <li class="nav-item" id="botonNav">
-                            <a class="nav-link" style="color:white;" id="navegacion" href="login.php"><img src="img/person-fill-gear.svg" width="22px" alt=""></a>
-                        </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </div>
-    </nav>
     <!--Aquí termina el menú de navegación-->
 
     <!--Aquí comienza el main-->
     <main class="container" style="margin-top: 20px;">
         <div class="row g-4">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <h1 class="h2 pb-2 mb-4 text-dark border-bottom border-dark">Contacto</h1>
-                <form action="contacto.php" method="post">
-                    <div class="col-md-12">
-                        <label for="nombre">Nombre</label>
-                        <input type="text" class="form-control" required autofocus autocomplete="off" name="nombre" id="nombre" placeholder="Nombre/nombres">
-                    </div> <br>
-                    <div class="col-md-12">
-                        <label for="apellidos">Apellidos</label>
-                        <input type="text" class="form-control" required autocomplete="off" name="apellidos" id="apellidos"  placeholder="Apellidos">
-                    </div> <br>
-                    <div class="form-group col-md-12">
-                        <label for="correo">Email</label>
-                        <input type="email" class="form-control" required autocomplete="off" name="correo" id="correo" placeholder="Email">
-                    </div> <br>
-                    <div>
-                        <label for="asunto">Asunto</label> <br>
-                        <select class="form-group form-select rounded border-0 col-md-4" name="asunto" id="asunto">
-                            <option value="Sugerencia">Sugerencia</option>
-                            <option value="Aportación de informacion">Aportación de información</option>
-                            <option value="Queja">Queja</option>
-                            <option value="Agradecimiento">Agradecimiento</option>
-                        </select>
-                    </div> <br>
-                    <div class="form-group col-md-12">
-                        <label for="comentario">Comentario</label>
-                        <textarea class="form-control" required name="comentario" id="comentario exampleFormControlTextarea1" rows="3" placeholder="Ingresa un comentario"></textarea>
-                    </div> <br>
+            </div>
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <h3 class="mb-3 text-center text-white" ><br>
+                    <div class="Datos shadow rounded" style="background-color: black;">
+                        <div class="row">
+                            <div class="col-md-7 pe-0">
+                                <div class="form-left h-100 py-5 px-5">
+                                    <form action="contacto.php" method="post" class="row g-4 text-white needs-validation" novalidate>
+                                            <div class="col-6">
+                                                <label>Nombre<span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-text"><img src="img/person.svg"></div>
+                                                    <input type="text" autofocus autocomplete="of" required id="nombre validationCustom01" name="nombre" class="form-control" placeholder=" Manuel">
+                                                    <div style="font-size: 10px;" class="invalid-feedback">
+                                                        Ingrese un nombre.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <label>Apellidos<span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-text"><img src="img/person.svg"></div>
+                                                    <input type="text" autocomplete="of" required autocomplete="off" name="apellidos" id="apellidos" class="form-control" placeholder="Urquidez León">
+                                                    <div style="font-size: 10px;" class="invalid-feedback">
+                                                        Ingrese sus apellidos.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <label>E-mail<span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-text"><img src="img/envelope-at.svg"></div>
+                                                    <input type="email" required autocomplete="off" name="correo" id="correo" class="form-control" placeholder="jcv_primaria@gmail.com">
+                                                    <div style="font-size: 10px;" class="invalid-feedback">
+                                                        Debe de llevar email válido.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <label>Asunto<span class="text-danger">*</span></label><br>
+                                                <select class="input-group-text col-12 form-select" name="asunto" id="asunto" required>
+                                                    <option selected disabled value="">Elegir opción...</option>
+                                                    <option value="Sugerencia">Sugerencia</option>
+                                                    <option value="Aportación de informacion">Aportación de información</option>
+                                                    <option value="Queja">Queja</option>
+                                                    <option value="Agradecimiento">Agradecimiento</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-">
+                                                <label>Comentario<span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-text"><img src="img/card-text.svg"></div>
+                                                    <textarea class="form-control" required name="comentario" id="comentario exampleFormControlTextarea1" rows="3" placeholder="Ingresa un comentario"></textarea>
+                                                    <div style="font-size: 10px;" class="invalid-feedback">
+                                                        Ingrese un comentario.
+                                                    </div>
+                                                </div>
+                                            </div>
 
-                    <button type="submit" class="btn btn-primary" value="enviar" name="enviar" id="enviar">Enviar</button>
-                </form> <br> <br>
-                <?php
+                                            <div class="col-12">
+                                                <button type="submit" name="enviar" id="enviar" value="enviar" class="btn calcular px-4 float-start mt-4" style="color:white">
+                                                    Enviar
+                                                </button>
+                                                <a href="index.html" name="inicio" id="inicio" value="inicio" class="btn calcular px-4 float-end mt-4" style="color:white">
+                                                    Regresar
+                                                </a>
+                                            </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-md-5 ps-1 d-none d-md-block">
+                                <div class=" container h-100 salario text-white text-center"> <br> <br>
+                                    <i><img src="img/libro.png" width="45px" alt="" srcset=""></i><hr>
+                                    <h2 class="fs-1">Esc. Prim. Fed.</h2>
+                                    <div class="form-right container text-white text-center pt-3">
+                                    <h2 class="fs-1">Lic. Benito  Juarez</h2><hr>
+                                        <h4 class="py-2 fecha">Fecha:
+                                            <script >
+                                                var meses = new Array("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre");
+                                                var f = new Date();
+                                                document.write(f.getDate() + " de " + meses[f.getMonth()] + " de " + f.getFullYear());
+                                            </script>
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-end text-secondary mt-3" style="font-size: 14px;">Todos los derechos derechos reservados. &copy; Exlamux6.</p>
+                </div>
+            </div>
+            <?php
                     if (isset($_POST['enviar'])) {
                         $nombre = $_POST['nombre'];
                         $apellidos = $_POST['apellidos'];
@@ -143,7 +134,7 @@ require 'conexion.php';
 
                         // Ejecutar la consulta
                         if ($stmt->execute()) {
-                            echo "Datos insertados correctamente";
+                            echo '<script> setTimeout(function() { bootbox.alert({message:"Registro completado", centerVertical: true, size: "small"}); }, 1000);</script>';
                         } else {
                             echo "Error al insertar los datos";
                         }
@@ -165,37 +156,6 @@ require 'conexion.php';
                     }
                     */
                 ?>
-            </div>
-
-            <!--Aquí comienza el aside-->
-            <aside class="col-md-4" style="padding-top: 40px;">
-                <div class="position-sticky" style="top: 2rem; text-align: center;">
-                    <div class="p-4 mb-3 bg-light rounded">
-                        <h4 class="fst-italic">Director</h4>
-                        <img src="img/descarga (1).png" width="80%" alt="">
-                        <p class="mb-0">Profesor: Jorge Cadena Vergara</p>
-                    </div>
-
-                    <div class="p-4">
-                        <h4 class="fst-italic">Fechas</h4>
-                        <ol class="list-unstyled mb-0">
-                            <li><a href="#">March 2021</a></li>
-                            <li><a href="#">February 2021</a></li>
-                            <li><a href="#">January 2021</a></li>
-                            <li><a href="#">December 2020</a></li>
-                            <li><a href="#">November 2020</a></li>
-                            <li><a href="#">October 2020</a></li>
-                            <li><a href="#">September 2020</a></li>
-                            <li><a href="#">August 2020</a></li>
-                            <li><a href="#">July 2020</a></li>
-                            <li><a href="#">June 2020</a></li>
-                            <li><a href="#">May 2020</a></li>
-                            <li><a href="#">April 2020</a></li>
-                        </ol>
-                    </div>
-                </div>
-            </aside>
-            <!--Aquí termina el aside-->
         </div>
     </main>
     <!--Aquí termina el main-->
@@ -209,6 +169,8 @@ require 'conexion.php';
 
     <!--Scripts de JavaScript-->
     <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/bootbox.js"></script>
+    <script src="js/contacto.js"></script>
 
     <?php
     mysqli_close($conn);

@@ -1,5 +1,9 @@
 <?php
 require 'conexion.php';
+session_start();
+if (!isset($_SESSION['id'])) {
+    header("Location: login.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="Es">
@@ -104,24 +108,36 @@ require 'conexion.php';
                 <form action="ingresarAlumnos.php" method="post">
                     <div class="col-md-12">
                     <input type="hidden" class="form-control" id="tabla" name="tabla" value="<?php echo $tabla; ?>">
-                        <label for="titulo">N° de lista</label>
+                        <label for="numerodeLista">N° de lista</label>
                         <input type="number" class="form-control" id="nlista" name="nlista">
                     </div> <br>
                     <div class="form-group col-md-12">
-                        <label for="correo">Nombre</label>
+                        <label for="nombre">Nombre</label>
                         <input type="text" class="form-control" required autocomplete="off" name="nombre" id="nombre" >
                     </div> <br>
                     <div class="form-group col-md-12">
-                        <label for="correo">Apellido paterno</label>
+                        <label for="paterno">Apellido paterno</label>
                         <input type="text" class="form-control" required autocomplete="off" name="paterno" id="paterno" >
                     </div> <br>
                     <div class="form-group col-md-12">
-                        <label for="correo">Apellido materno</label>
+                        <label for="materno">Apellido materno</label>
                         <input type="text" class="form-control" required autocomplete="off" name="materno" id="materno">
                     </div> <br>
                     <div class="form-group col-md-12">
-                        <label for="correo">Calificacion</label>
-                        <input type="number" class="form-control" required autocomplete="off" name="calificacion" id="calificación" step="any" min="0" max="10">
+                        <label for="primerParcial">1er Parcial</label>
+                        <input type="number" class="form-control" required autocomplete="off" name="pparcial" id="pparcial" step="any" min="0" max="10">
+                    </div> <br>
+                    <div class="form-group col-md-12">
+                        <label for="primerParcial">2do Parcial</label>
+                        <input type="number" class="form-control" required autocomplete="off" name="sparcial" id="sparcial" step="any" min="0" max="10">
+                    </div> <br>
+                    <div class="form-group col-md-12">
+                        <label for="primerParcial">3er Parcial</label>
+                        <input type="number" class="form-control" required autocomplete="off" name="tparcial" id="tparcial" step="any" min="0" max="10">
+                    </div> <br>
+                    <div class="form-group col-md-12">
+                        <label for="primerParcial">Promedio</label>
+                        <input type="number" class="form-control" required autocomplete="off" name="promedio" id="promedio" step="any" min="0" max="10">
                     </div> <br>
 
                     <button type="submit" class="btn btn-primary" name="actualizar" value="actualizar">Añadir</button>
