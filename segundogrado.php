@@ -231,5 +231,7 @@
     <script src="js/scroll.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
 </body>
-
+<?php
+    mysqli_close($conn);
+?>
 </html>
