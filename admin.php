@@ -12,7 +12,6 @@ $tipo_usuario = $_SESSION['tipo_usuario'];
 <?php if($tipo_usuario == 1 || $tipo_usuario == 2 || $tipo_usuario == 3|| $tipo_usuario == 4|| $tipo_usuario == 5 || $tipo_usuario == 6 || $tipo_usuario == 7 || $tipo_usuario == 8 || $tipo_usuario == 9 || $tipo_usuario == 10 || $tipo_usuario == 11 || $tipo_usuario == 12 || $tipo_usuario == 13) { ?>
 <!DOCTYPE html>
 <html lang="Es">
-
 <head>
         <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -86,15 +85,44 @@ $tipo_usuario = $_SESSION['tipo_usuario'];
                                         Comentarios
                                     </a>
                                 </li>
-                                <li class="nav-item" id="botonNav">
-                                    <a class="nav-link" style="color: white;" id="navegacion" href="crearUsuarios.php">
-                                        Crear usuarios
+                                <li class="nav-item dropdown" id="botonNav">
+                                    <a class="nav-link dropdown-toggle show.bs.dropdown" id="navegacion" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" style="color: white;" aria-expanded="false">
+                                    <span>Publicaciones</span>
                                     </a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                        <li>
+                                            <a class="btn btn-success dropdown-item"  href="publicarnoticias.php">
+                                                Publicar noticias
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="btn btn-success dropdown-item"  href="editarnoticias.php">
+                                                Editar noticias
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="btn btn-success dropdown-item" href="imageneslider.php">
+                                                Sección de imágenes
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </li>
-                                <li class="nav-item" id="botonNav">
-                                        <a class="nav-link" style="color: white;" id="navegacion" href="verUsuarios.php">
-                                            Ver usuarios
-                                        </a>
+                                <li class="nav-item dropdown" id="botonNav">
+                                    <a class="nav-link dropdown-toggle show.bs.dropdown" id="navegacion" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" style="color: white;" aria-expanded="false">
+                                    <span>Usuarios</span>
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                        <li>
+                                            <a class="btn btn-success dropdown-item"  href="crearUsuarios.php">
+                                                Crear usuarios
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="btn btn-success dropdown-item" href="verUsuarios.php">
+                                                Ver usuarios
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </li>
                                 <?php } if ($tipo_usuario == 1 || $tipo_usuario == 2 || $tipo_usuario == 3|| $tipo_usuario == 4|| $tipo_usuario == 5|| $tipo_usuario == 6) { ?>
                                 <li class="nav-item dropdown" id="botonNav">

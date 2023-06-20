@@ -162,74 +162,31 @@
                 <h1 class="h2 pb-2 mb-4 text-dark border-bottom border-dark">Noticias</h1>
                 <div class="row mb-2 service hidden">
                     <div class="col-md-12">
+                        <?php
+                        include 'conexion.php';
+
+                        $sql = "SELECT * FROM noticias ORDER BY id DESC LIMIT 3";
+                        $resultado = mysqli_query($conn, $sql);
+
+                        while ($registros = $resultado ->fetch_assoc()) {
+                        ?>
                         <div id="FondoArticle"
                             class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                            <div class="col-auto d-none d-lg-block">
-                                <img src="img/article.png" alt="">
+                            <div class="col-md-3">
+                                <img class="img-fluid rounded-start w-100 h-100" src="imagenes/<?php echo $registros['imagen_portada']?>" alt="...">
                             </div>
-                            <div class="col p-4 d-flex flex-column position-static">
-                                <strong class="d-inline-block mb-2 text-primary">Noticias de la institución</strong>
-                                <h3 class="mb-0">Lorem ipsum dolor, sit amet consectetur</h3>
-                                <div class="mb-1 text-muted">Mayo 23</div>
-                                <p class="card-text mb-auto">This is a wider card with supporting text below as a
-                                    natural lead-in to additional content.</p>
+                            <div class="col-md-9 p-4 d-flex flex-column position-static">
+                                <strong class="d-inline-block mb-2 text-primary"><?php echo $registros['titulo']; ?></strong>
+                                <h3 class="mb-0"><?php echo $registros['nombre_noticia']; ?></h3>
+                                <div class="mb-1 text-muted"><?php echo $registros['fecha']; ?></div>
+                                <p class="card-text mb-auto"><?php echo $registros['nota_corta']; ?></p>
+                                <div class="mb-1 text-muted">Autor: <?php echo $registros['autor']; ?></div>
                                 <a href="#" class="col-md-5 btn btn-primary">Continuar leyendo...</a>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="row mb-2 service hidden">
-                    <div class="col-md-12">
-                        <div id="FondoArticle"
-                            class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                            <div class="col-auto d-none d-lg-block">
-                                <img src="img/article.png" alt="">
-                            </div>
-                            <div class="col p-4 d-flex flex-column position-static">
-                                <strong class="d-inline-block mb-2 text-primary">Noticias de la institución</strong>
-                                <h3 class="mb-0">Lorem ipsum dolor, sit amet consectetur</h3>
-                                <div class="mb-1 text-muted">Mayo 23</div>
-                                <p class="card-text mb-auto">This is a wider card with supporting text below as a
-                                    natural lead-in to additional content.</p>
-                                <a href="#" class="col-md-5 btn btn-primary">Continuar leyendo...</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mb-2 service hidden">
-                    <div class="col-md-12">
-                        <div id="FondoArticle"
-                            class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                            <div class="col-auto d-none d-lg-block">
-                                <img src="img/article.png" alt="">
-                            </div>
-                            <div class="col p-4 d-flex flex-column position-static">
-                                <strong class="d-inline-block mb-2 text-primary">Noticias de la institución</strong>
-                                <h3 class="mb-0">Lorem ipsum dolor, sit amet consectetur</h3>
-                                <div class="mb-1 text-muted">Mayo 23</div>
-                                <p class="card-text mb-auto">This is a wider card with supporting text below as a
-                                    natural lead-in to additional content.</p>
-                                <a href="#" class="col-md-5 btn btn-primary">Continuar leyendo...</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mb-2 service hidden">
-                    <div class="col-md-12">
-                        <div id="FondoArticle"
-                            class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                            <div class="col-auto d-none d-lg-block">
-                                <img src="img/article.png" alt="">
-                            </div>
-                            <div class="col p-4 d-flex flex-column position-static">
-                                <strong class="d-inline-block mb-2 text-primary">Noticias de la institución</strong>
-                                <h3 class="mb-0">Lorem ipsum dolor, sit amet consectetur</h3>
-                                <div class="mb-1 text-muted">Mayo 23</div>
-                                <p class="card-text mb-auto">This is a wider card with supporting text below as a
-                                    natural lead-in to additional content.</p>
-                                <a href="#" class="col-md-5 btn btn-primary">Continuar leyendo...</a>
-                            </div>
-                        </div>
+                        <?php
+                            }
+                        ?>
                     </div>
                 </div>
                 <div class="col-md-12 my-3 py-4 service hidden">
