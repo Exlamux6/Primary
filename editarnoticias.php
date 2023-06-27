@@ -147,6 +147,8 @@ $tipo_usuario = $_SESSION['tipo_usuario'];
                             <tr>
                             <th scope="col">#</th>
                             <th scope="col">Nombre</th>
+                            <th scope="col">Nota corta</th>
+                            <th scope="col">Autor</th>
                             <th scope="col">Imagen</th>
                             <th scope="col">Acciones</th>
                             </tr>
@@ -163,10 +165,12 @@ $tipo_usuario = $_SESSION['tipo_usuario'];
                             <tr>
                             <th scope="row"><?php echo $fila['id']; ?></th>
                             <td><?php echo $fila['nombre_noticia']; ?></td>
+                            <td><?php echo $fila['nota_corta']; ?></td>
+                            <td><?php echo $fila['autor']; ?></td>
                             <td><img width="100px" src="imagenes/<?php echo $fila['imagen_horizontal']?>" alt="..."></td>
                             <td>
-                                <a href="editar.php?id=<?php echo $fila['id']; ?>" class="btn btn-warning">Editar</a>
-                                <form action="borrar.php" method="post">
+                                <a href="updatenews.php?id=<?php echo $fila['id']; ?>" class="btn btn-warning">Editar</a>
+                                <form action="borrarnoticia.php" method="post">
                                         <input type="hidden" name="id" value="<?php echo $fila['id']; ?>">
                                         <button type="submit" name="borrar" class="btn btn-danger">Borrar</button>
                                     </form>
