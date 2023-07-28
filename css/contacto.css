@@ -1,21 +1,26 @@
-body{
-    background-image: linear-gradient(50deg,#b3c8d2,#425c68, #b3c8d2, #425c68);
+body {
+    background-image: linear-gradient(90deg, #232336, #132844, #ffc107, #411826);
     background-size: 500%;
 }
-div.Datos{
-    background-image: linear-gradient(90deg,#231959,#1a3067);
+
+div.Datos {
+    background-image: linear-gradient(90deg, #096088, #442479);
     background-size: 100%;
 }
 
-div.salario{
-    background-image: linear-gradient(90deg, #231959,#1a3067);
+div.salario {
+    background-image: linear-gradient(90deg, #39a7da, #074a61);
     background-size: 100%;
 }
-button#enviar{
-    background-image: linear-gradient(90deg, #f27d00,#705f30);
+
+button#enviar {
+    background-image: linear-gradient(90deg, #ff5722, #ff9800);
     background-size: 100%;
+    color: white;
 }
-a#inicio{
-    background-image: linear-gradient(90deg, #541e1c,#4c322b);
+
+a#inicio {
+    background-image: linear-gradient(90deg, #e91e63, #9c27b0);
     background-size: 100%;
+    color: white;
 }

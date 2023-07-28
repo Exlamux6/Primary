@@ -61,10 +61,10 @@ $tipo_usuario = $_SESSION['tipo_usuario'];
     <!--Aquí termina el header-->
 
     <!--Inicia el menú de navegación-->
-    <nav>
-        <div class="col-md-12">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container">
+        <nav>
+            <div class="col-md-12">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <div class="container">
                         <a href="#">
                             <img src="img/libro.png" alt="" width="40" style="margin-right: 10px;">
                         </a>
@@ -72,18 +72,18 @@ $tipo_usuario = $_SESSION['tipo_usuario'];
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
-                    <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
-                        <ul class="navbar-nav">
-                            <li class="nav-item" id="botonNav">
-                                <a class="nav-link active" id="navegacion" style="color: white;" aria-current="page" href="admin.php">
-                                    Calificaciones
-                                </a>
-                            </li>
-                            <li class="nav-item" id="botonNav">
-                                <a class="nav-link" style="color: white;" id="navegacion" href="comentarios.php">
-                                    Comentarios
-                                </a>
-                            </li>
+                        <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+                            <ul class="navbar-nav">
+                                <li class="nav-item" id="botonNav">
+                                    <a class="nav-link active" id="navegacion" style="color: white;" aria-current="page" href="admin.php">
+                                        Calificaciones
+                                    </a>
+                                </li>
+                                <li class="nav-item" id="botonNav">
+                                    <a class="nav-link" style="color: white;" id="navegacion" href="comentarios.php">
+                                        Comentarios
+                                    </a>
+                                </li>
                                 <li class="nav-item dropdown" id="botonNav">
                                     <a class="nav-link dropdown-toggle show.bs.dropdown" id="navegacion" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" style="color: white;" aria-expanded="false">
                                     <span>Publicaciones</span>
@@ -91,12 +91,22 @@ $tipo_usuario = $_SESSION['tipo_usuario'];
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                         <li>
                                             <a class="btn btn-success dropdown-item"  href="publicarnoticias.php">
-                                                Noticias
+                                                Publicar noticias
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="btn btn-success dropdown-item"  href="editarnoticias.php">
+                                                Editar noticias
                                             </a>
                                         </li>
                                         <li>
                                             <a class="btn btn-success dropdown-item" href="imageneslider.php">
-                                                Sección de imágenes
+                                                Publicar sección de imágenes
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="btn btn-success dropdown-item" href="actualizar_slider.php">
+                                                Editar sección de imágenes
                                             </a>
                                         </li>
                                     </ul>
@@ -118,61 +128,50 @@ $tipo_usuario = $_SESSION['tipo_usuario'];
                                         </li>
                                     </ul>
                                 </li>
-                            <li class="nav-item dropdown" id="botonNav">
+                                <li class="nav-item dropdown" id="botonNav">
                                     <a class="nav-link dropdown-toggle show.bs.dropdown" id="navegacion" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" style="color: white;" aria-expanded="false">
                                     <img src="img/gear-wide-connected.svg" alt="" class="avatar img-fluid rounded-circle me-1" style="fill: #FFF;">
                                     <span>Administrador</span>
                                     </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <li>
-                                        <a class="btn btn-success dropdown-item" href="salir.php">Salir de la sesión</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                        <li>
+                                            <a class="btn btn-success dropdown-item" href="salir.php">Salir de la sesión</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-            </nav>
-        </div>
-    </nav>
+                </nav>
+            </div>
+        </nav>
     <!--Aquí termina el menú de navegación-->
 
     <!--Aquí comienza el main-->
     <main class="container" style="margin-top: 20px;">
         <div class="row g-4">
             <div class="col-md-12">
-                <h1 class="h2 pb-2 mb-4 text-center text-dark border-bottom border-dark">Crear usuarios</h1>
+                <h1 class="h2 pb-2 mb-4 text-center text-dark border-bottom border-dark">Publicar sección de imágenes</h1>
                 <div class="col-md-12 d-flex justify-content-center bg-secondary py-4 rounded">
-                    <form action="ingresarAlumnos.php" method="post">
-                        <div class="form-group col-md-12">
-                        <input type="hidden" class="form-control" name="tabla" value="<?php echo $table = "usuario"; ?>">
-                            <label for="nombre">Nombre</label>
-                            <input type="text" class="form-control" required autocomplete="off" name="nombre" id="nombre">
-                        </div> <br>
-                        <div class="form-group col-md-12">
-                            <label for="password">Contraseña</label>
-                            <input type="text" class="form-control" required autocomplete="off" name="password" id="password">
-                        </div> <br>
-                        <div class="form-group col-md-12">
-                            <label for="tipodeUsuario">Tipo de usuario</label>
-                            <select class="input-group-text col-10 form-select" name="grupo" id="grupo" required>
-                                <option selected disabled value="">Elegir opción...</option>
-                                <option value="1" id="admin" class="text-start">Administrador</option>
-                                <option value="2" id="primeroa" class="text-start">1er Grado - Grupo A</option>
-                                <option value="3" class="text-start">1er Grado - Grupo B</option>
-                                <option value="4" id="segundoa" class="text-start">2do Grado - Grupo A</option>
-                                <option value="5" class="text-start">2do Grado - Grupo B</option>
-                                <option value="6" id="terceroa" class="text-start">3er Grado - Grupo A</option>
-                                <option value="7" class="text-start">3er Grado - Grupo B</option>
-                                <option value="8" id="cuartoa" class="text-start">4to Grado - Grupo A</option>
-                                <option value="9" class="text-start">4to Grado - Grupo B</option>
-                                <option value="10" id="quintoa" class="text-start">5to Grado - Grupo A</option>
-                                <option value="11" class="text-start">5to Grado - Grupo B</option>
-                                <option value="12" id="sextoa" class="text-start">6to Grado - Grupo A</option>
-                                <option value="13" class="text-start">6to Grado - Grupo B</option>
-                            </select>
-                        </div> <br>
-                        <button type="submit" class="btn btn-primary" name="actualizar" value="actualizar">Crear usuario</button>
+                    <form action="guardar_slider.php" method="post" enctype="multipart/form-data">
+                        <h1>Formulario de Imagenes de Carrusel</h1>
+                        <fieldset>
+                            <div class="mb-4">
+                                <label for="texto1" class="form-label">Texto 1:</label>
+                                <input type="text" class="form-control" id="texto1" name="texto1" value="Esc. Prim. Fed."  required>
+                            </div>
+                            <div class="mb-4">
+                                <label for="texto1" class="form-label">Texto 2:</label>
+                                <input type="text" class="form-control" value="Lic. Benito Juárez" id="texto2" name="texto2" required>
+                            </div>
+                        </fieldset>
+                        <fieldset>
+                            <div class="mb-4">
+                                <label for="imagen" class="form-label">Imagen:</label>
+                                <input type="file" class="form-control" id="imagen" name="imagen" required>
+                            </div>
+                        </fieldset>
+                        <button type="submit" class="btn btn-primary">Publicar slider</button>
                     </form> <br>
                 </div> <br><br>
             </div>

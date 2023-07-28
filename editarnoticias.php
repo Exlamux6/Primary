@@ -60,10 +60,10 @@ $tipo_usuario = $_SESSION['tipo_usuario'];
     <!--Aquí termina el header-->
 
     <!--Inicia el menú de navegación-->
-    <nav>
-        <div class="col-md-12">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container">
+        <nav>
+            <div class="col-md-12">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <div class="container">
                         <a href="#">
                             <img src="img/libro.png" alt="" width="40" style="margin-right: 10px;">
                         </a>
@@ -71,18 +71,18 @@ $tipo_usuario = $_SESSION['tipo_usuario'];
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
-                    <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
-                        <ul class="navbar-nav">
-                            <li class="nav-item" id="botonNav">
-                                <a class="nav-link active" id="navegacion" style="color: white;" aria-current="page" href="admin.php">
-                                    Calificaciones
-                                </a>
-                            </li>
-                            <li class="nav-item" id="botonNav">
-                                <a class="nav-link" style="color: white;" id="navegacion" href="comentarios.php">
-                                    Comentarios
-                                </a>
-                            </li>
+                        <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+                            <ul class="navbar-nav">
+                                <li class="nav-item" id="botonNav">
+                                    <a class="nav-link active" id="navegacion" style="color: white;" aria-current="page" href="admin.php">
+                                        Calificaciones
+                                    </a>
+                                </li>
+                                <li class="nav-item" id="botonNav">
+                                    <a class="nav-link" style="color: white;" id="navegacion" href="comentarios.php">
+                                        Comentarios
+                                    </a>
+                                </li>
                                 <li class="nav-item dropdown" id="botonNav">
                                     <a class="nav-link dropdown-toggle show.bs.dropdown" id="navegacion" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" style="color: white;" aria-expanded="false">
                                     <span>Publicaciones</span>
@@ -90,12 +90,22 @@ $tipo_usuario = $_SESSION['tipo_usuario'];
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                         <li>
                                             <a class="btn btn-success dropdown-item"  href="publicarnoticias.php">
-                                                Noticias
+                                                Publicar noticias
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="btn btn-success dropdown-item"  href="editarnoticias.php">
+                                                Editar noticias
                                             </a>
                                         </li>
                                         <li>
                                             <a class="btn btn-success dropdown-item" href="imageneslider.php">
-                                                Sección de imágenes
+                                                Publicar sección de imágenes
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="btn btn-success dropdown-item" href="actualizar_slider.php">
+                                                Editar sección de imágenes
                                             </a>
                                         </li>
                                     </ul>
@@ -117,23 +127,23 @@ $tipo_usuario = $_SESSION['tipo_usuario'];
                                         </li>
                                     </ul>
                                 </li>
-                            <li class="nav-item dropdown" id="botonNav">
+                                <li class="nav-item dropdown" id="botonNav">
                                     <a class="nav-link dropdown-toggle show.bs.dropdown" id="navegacion" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" style="color: white;" aria-expanded="false">
                                     <img src="img/gear-wide-connected.svg" alt="" class="avatar img-fluid rounded-circle me-1" style="fill: #FFF;">
                                     <span>Administrador</span>
                                     </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <li>
-                                        <a class="btn btn-success dropdown-item" href="salir.php">Salir de la sesión</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                        <li>
+                                            <a class="btn btn-success dropdown-item" href="salir.php">Salir de la sesión</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-            </nav>
-        </div>
-    </nav>
+                </nav>
+            </div>
+        </nav>
     <!--Aquí termina el menú de navegación-->
 
     <!--Aquí comienza el main-->

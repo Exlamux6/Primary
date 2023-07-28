@@ -102,7 +102,12 @@ $tipo_usuario = $_SESSION['tipo_usuario'];
                                         </li>
                                         <li>
                                             <a class="btn btn-success dropdown-item" href="imageneslider.php">
-                                                Sección de imágenes
+                                                Publicar sección de imágenes
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="btn btn-success dropdown-item" href="actualizar_slider.php">
+                                                Editar sección de imágenes
                                             </a>
                                         </li>
                                     </ul>

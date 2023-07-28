@@ -4,17 +4,20 @@ body {
     padding: 0;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
-#TopbarStar{
-    background-color: #011D40;
+
+#TopbarStar {
+    background-color: #172230;
 }
+
 nav .navbar {
-    background-image: linear-gradient(80deg, #4b507c, #5f8788);
+    background-image: linear-gradient(80deg, #1d476f, #5786a7);
     background-size: 100%;
 }
 
 #navegacion:hover {
-    background-color: rgb(35, 129, 180);
+    background-color: #2381b4;
     border-radius: 50px;
+    transition: background-color 0.3s ease-in-out;
 }
 
 #FondoArticle {
@@ -60,24 +63,31 @@ nav .navbar {
     -ms-transform: translateX(0%);
     -o-transform: translateX(0%);
 }
-#primeroa{
+
+#primeroa {
     background-color: silver;
 }
-#segundoa{
+
+#segundoa {
     background-color: silver;
 }
-#terceroa{
+
+#terceroa {
     background-color: silver;
 }
-#cuartoa{
+
+#cuartoa {
     background-color: silver;
 }
-#quintoa{
+
+#quintoa {
     background-color: silver;
 }
-#sextoa{
+
+#sextoa {
     background-color: silver;
 }
-#admin{
+
+#admin {
     background-color: darkseagreen;
 }

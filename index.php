@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-grid.min.css">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/letras.css">
     <title>Esc. Prim. Fed. Lic. Benito Juarez</title>
 </head>
 
@@ -49,44 +50,35 @@
 
     </header>
     <!--Aquí termina el header-->
-
     <!--Inicia el menú de navegación-->
     <nav>
         <div class="col-md-12">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container">
-                    <a href="#">
+                    <a href="index.php">
                         <img src="img/libro.png" alt="" width="40" style="margin-right: 10px;">
                     </a>
-                    <a class="navbar-brand" id="nombrePrimaria" style="color: white;" href="#"> Esc. Prim. Fed. Benito
-                        Juarez</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
-                        aria-label="Toggle navigation">
+                    <a class="navbar-brand hover-button" id="nombrePrimaria" style="color: white;" href="#"> Esc. Prim. Fed. Benito Juarez</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
                         <ul class="navbar-nav">
                             <li class="nav-item" id="botonNav">
-                                <a class="nav-link active" id="navegacion" style="color: white;" aria-current="page"
-                                    href="index.html">Inicio</a>
+                                <a class="nav-link active" id="navegacion" style="color: white;" aria-current="page" href="index.php">Inicio</a>
                             </li>
                             <li class="nav-item" id="botonNav">
-                                <a class="nav-link" style="color: white;" id="navegacion" href="acercade.html">Acerca
+                                <a class="nav-link" style="color: white;" id="navegacion" href="acercade.html" onclick="acercade.js">Acerca
                                     de</a>
                             </li>
                             <li class="nav-item" id="botonNav">
-                                <a class="nav-link" style="color: white;" id="navegacion"
-                                    href="ofertaeducativa.html">Oferta educativa</a>
+                                <a class="nav-link" style="color: white;" id="navegacion" href="ofertaeducativa.html">Oferta educativa</a>
                             </li>
                             <li class="nav-item dropdown" id="botonNav">
-                                <a class="nav-link dropdown-toggle show.bs.dropdown" id="navegacion"
-                                    id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown"
-                                    style="color: white;" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle show.bs.dropdown" id="navegacion" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" style="color: white;" aria-expanded="false">
                                     Grupos
                                 </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"
-                                    style="background-image:  linear-gradient(80deg,#5f8788,#4b507c);">
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background-image:  linear-gradient(80deg,#5f8788,#4b507c);">
                                     <li><a class=" dropdown-item" href="primergrado.php">Primer Grado</a>
                                     </li>
                                     <li><a class="dropdown-item" href="segundogrado.php">Segundo Grado</a></li>
@@ -97,12 +89,10 @@
                                 </ul>
                             </li>
                             <li class="nav-item" id="botonNav">
-                                <a class="nav-link" style="color:white;" id="navegacion"
-                                    href="contacto.php">Contacto</a>
+                                <a class="nav-link" style="color:white;" id="navegacion" href="contacto.php">Contacto</a>
                             </li>
                             <li class="nav-item" id="botonNav">
-                                <a class="nav-link" style="color:white;" id="navegacion" href="login.php"><img
-                                        src="img/person-fill-gear.svg" width="22px" alt=""></a>
+                                <a class="nav-link" style="color:white;" id="navegacion" href="login.php"><img src="img/person-fill-gear.svg" width="22px" alt=""></a>
                             </li>
                         </ul>
                     </div>
@@ -110,49 +100,64 @@
             </nav>
         </div>
     </nav>
-    <div id="carouselExampleCaptions" class="carousel slide">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
-                aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-                aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-                aria-label="Slide 3"></button>
+    <style>
+        #my-image {
+            filter: brightness(0.2);
+            /* Ajusta el valor de opacidad según tus necesidades */
+        }
+    </style>
+    <?php
+    include 'conexion.php';
+
+    $sql = "SELECT * FROM slider ORDER BY id DESC LIMIT 3";
+    $resultado = mysqli_query($conn, $sql);
+
+    if (mysqli_num_rows($resultado) > 0) {
+    ?>
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <?php
+                $active = "active";
+                for ($i = 0; $i < mysqli_num_rows($resultado); $i++) {
+                ?>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="<?php echo $i; ?>" class="<?php echo $active; ?>" aria-current="true" aria-label="Slide <?php echo $i + 1; ?>"></button>
+                <?php
+                    $active = "";
+                }
+                ?>
+            </div>
+            <div class="carousel-inner">
+                <?php
+                $active = "active";
+                while ($registros = $resultado->fetch_assoc()) {
+                ?>
+                    <div class="carousel-item <?php echo $active; ?>" data-bs-interval="3000">
+                        <img id="my-image" src="imgSlider/<?php echo $registros['imagen'] ?>" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5><?php echo $registros['texto1'] ?></h5>
+                            <p><?php echo $registros['texto2'] ?></p>
+                        </div>
+                    </div>
+                <?php
+                    $active = "";
+                }
+                ?>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="img/slider1.png" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Esc. Prim. Fed.</h5>
-                    <p>Lic. Benito Juarez</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="img/slider2.png" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Esc. Prim. Fed.</h5>
-                    <p>Lic. Benito Juarez</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="img/slider3.png" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Esc. Prim. Fed.</h5>
-                    <p>Lic. Benito Juarez</p>
-                </div>
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
-            data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
-            data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
+    <?php
+    }
+
+    mysqli_close($conn);
+    ?>
+
     <!--Aquí termina el menú de navegación-->
 
     <!--Aquí comienza el main-->
@@ -168,24 +173,27 @@
                         $sql = "SELECT * FROM noticias ORDER BY id DESC LIMIT 3";
                         $resultado = mysqli_query($conn, $sql);
 
-                        while ($registros = $resultado ->fetch_assoc()) {
+                        while ($registros = $resultado->fetch_assoc()) {
                         ?>
-                        <div id="FondoArticle"
-                            class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                            <div class="col-md-3">
-                                <img class="img-fluid rounded-start w-100 h-100" src="imagenes/<?php echo $registros['imagen_portada']?>" alt="...">
+                            <div id="FondoArticle" class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                                <div class="col-md-3">
+                                    <img class="img-fluid rounded-start w-100 h-100" src="imagenes/<?php echo $registros['imagen_portada'] ?>" alt="...">
+                                </div>
+                                <div class="col-md-9 p-4 d-flex flex-column position-static">
+                                    <strong class="d-inline-block mb-2 text-primary"><?php echo $registros['titulo']; ?></strong>
+                                    <h3 class="mb-0"><?php echo $registros['nombre_noticia']; ?></h3>
+                                    <div class="mb-1 text-muted"><?php echo $registros['fecha']; ?></div>
+                                    <p class="card-text mb-auto"><?php echo $registros['nota_corta']; ?></p>
+                                    <div class="mb-1 text-muted">Autor: <?php echo $registros['autor']; ?></div>
+                                    <form action="noticias.php" method="post">
+                                        <input type="hidden" name="table" value="<?php echo "noticias"; ?>">
+                                        <input type="hidden" name="id" value="<?php echo $registros['id']; ?>">
+                                        <button type="submit" name="noticias" class="btn btn-primary">Continuar leyendo...</button>
+                                    </form>
+                                </div>
                             </div>
-                            <div class="col-md-9 p-4 d-flex flex-column position-static">
-                                <strong class="d-inline-block mb-2 text-primary"><?php echo $registros['titulo']; ?></strong>
-                                <h3 class="mb-0"><?php echo $registros['nombre_noticia']; ?></h3>
-                                <div class="mb-1 text-muted"><?php echo $registros['fecha']; ?></div>
-                                <p class="card-text mb-auto"><?php echo $registros['nota_corta']; ?></p>
-                                <div class="mb-1 text-muted">Autor: <?php echo $registros['autor']; ?></div>
-                                <a href="#" class="col-md-5 btn btn-primary">Continuar leyendo...</a>
-                            </div>
-                        </div>
                         <?php
-                            }
+                        }
                         ?>
                     </div>
                 </div>
@@ -269,10 +277,7 @@
                     <h2 class=" pb-2 mb-4 text-dark border-bottom border-dark">Ubicación</h2>
                     <div>
                         <p>Nuevo Guerrero, Gro, municipio de Tlapehuala. 40609.</p>
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1894.8127459334598!2d-100.52726312686003!3d18.22712595641305!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ccc9544debe73b%3A0x4315a35b5f08d353!2sEscuela%20Primaria%20Lic.%20Benito%20Juarez!5e0!3m2!1ses-419!2smx!4v1678729071845!5m2!1ses-419!2smx"
-                            width="100%" height="600" style="border:0;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1894.8127459334598!2d-100.52726312686003!3d18.22712595641305!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ccc9544debe73b%3A0x4315a35b5f08d353!2sEscuela%20Primaria%20Lic.%20Benito%20Juarez!5e0!3m2!1ses-419!2smx!4v1678729071845!5m2!1ses-419!2smx" width="100%" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
             </div>
@@ -308,17 +313,17 @@
                 <span class="mb-3 mb-md-0 text-muted">&copy; 2023 Victor Manuel Urquidez León</span>
             </div>
             <div class="col-md-4"></div>
-            <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-                <li class="ms-3"><a class="text-muted" href="#">
-                    <img src="img/gear-wide-connected.svg" alt="">
-                </a></li>
-                <li class="ms-3"><a class="text-muted" href="#">
-                    <img src="img/gear-wide-connected.svg" alt=""></a></li>
-                <li class="ms-3"><a class="text-muted" href="#">
-                    <img src="img/gear-wide-connected.svg" alt="">
-                </a></li>
+            <ul class="nav col-md-4 justify-content-end">
+                <li class="nav-item">
+                    <a class="nav-link" href="acercade.html">Acerca de</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="products.html">Oferta educativa</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contacto.html">Contacto</a>
+                </li>
             </ul>
-            <div class="border-secondary border-top"></div>
         </footer>
     </div>
     <!--Aquí termina el footer-->
@@ -327,5 +332,8 @@
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/scroll.js"></script>
 </body>
+<?
+mysqli_close($conn);
+?>
 
 </html>

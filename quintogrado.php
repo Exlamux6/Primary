@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-grid.min.css">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/letras.css">
     <script src="js/jquery-3.5.1.min.js"></script>
     <title>Esc. Prim. Fed. Lic. Benito Juarez</title>
 </head>
@@ -59,7 +60,7 @@
                     <a href="#">
                         <img src="img/libro.png" alt="" width="40" style="margin-right: 10px;">
                     </a>
-                    <a class="navbar-brand" id="nombrePrimaria" style="color: white;" href="#"> Esc. Prim. Fed. Benito Juarez</a>
+                    <a class="navbar-brand hover-button" id="nombrePrimaria" style="color: white;" href="#"> Esc. Prim. Fed. Benito Juarez</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
                         aria-label="Toggle navigation">
@@ -69,7 +70,7 @@
                         <ul class="navbar-nav">
                             <li class="nav-item" id="botonNav">
                                 <a class="nav-link active" id="navegacion" style="color: white;" aria-current="page"
-                                    href="index.html">Inicio</a>
+                                    href="index.php">Inicio</a>
                             </li>
                             <li class="nav-item" id="botonNav">
                                 <a class="nav-link" style="color: white;" id="navegacion" href="acercade.html">Acerca de</a>
